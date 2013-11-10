@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ user }}'s Story Search</title>
+	<link type="css/text" rel="stylesheet" href="css/stories.css"/>
+	<script>
+		var redirect = function(){
+			window.location = 'http://www.npr-app.appspot.com';
+		}
+	</script>
+</head>
+<body>
+	<div class="wrapper">
+		<h4>Latest ten stories under the topic of {{ topic }}</h4>
+		<BR/>
+		<form method="POST">
+			<select name="story" size="10">
+			{% for story in stories %}
+				<option>{{ story }}</option>
+			{% endfor %}
+			<select>
+			<BR/>
+			<button type="submit">Read More</button>
+			<button type="button" onclick="redirect()">Search Another Topic</button>
+		</form>
+		<div class="warning">Please be aware that the NPR API can be, at times, unpredictable. As such, errors will occur with certain stories. </div>
+	</div>
+</body>
+</html>

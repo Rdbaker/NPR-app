@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 
+	AUTHOR: Ryan Baker
+	TOOLS USED: 
+			- Google App Engine (python),
+			- NPR's API,
+			- Google Datastore and its
+				corrosponding API (GQL),
+			- Jinja2
+
+-->
+	<title>Search for NPR stories by topic</title>
+	<link type="css/text" rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+	<div>
+		<form method="POST">
+			<p>Welcome, <input name="user" type='text' placeholder={{ user }}>!</p>
+			<p>Pick a topic of NPR stories that you want to read about!</p>
+			<select name="topic_name">
+				{% for st in options %}
+					<option>
+						{{ st }}
+					</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="Search"/>
+		</form>
+		<hr>
+		<h4>Guest Log</h4>
+		<table>
+			<tr>
+				<th>
+					Guest Name
+				</th>
+				<th>
+					Topic Chosen
+				</th>
+				<th>
+					Visited Time
+				</th>
+			</tr>
+			{% for visitor in visitors %}
+			<tr>
+				<td>
+					{{ visitor.name }}
+				</td>
+				<td>
+					{{ visitor.topic }}
+				</td>
+				<td>
+					{{ visitor.visited }}
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</body>
+</html>

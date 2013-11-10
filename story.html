@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href='/css/story.css'/>
+	<title>
+		{{ things[0]['title']['$text'] }}
+	</title>
+</head>
+<body>
+	<div class="wrapper">
+		<h3> {{ things[0]['title']['$text'] }} </h3>
+		{% for p in story_cont %}
+			<p>{{ p }}</p>
+		{% endfor %}
+		<a href="http://www.npr-app.appspot.com/">Search for another story.</a>
+	</div>
+</body>
+</html>
